@@ -1,0 +1,14 @@
+# Mengaktifkan URL rewriting
+RewriteEngine On
+
+# Set direktori root untuk proyek kamu
+RewriteBase /belajarphp/
+
+# Jika file yang diminta tidak ada, lanjutkan ke kondisi berikutnya
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Jika folder yang diminta juga tidak ada, lanjutkan ke rule berikutnya
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Semua request yang tidak menemukan file atau folder akan diarahkan ke index.php
+RewriteRule ^(.*)$ index.php [L]
